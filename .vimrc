@@ -28,3 +28,11 @@ map ) <Up>
 " Double tap i or I to exit Insert mode
 imap ii <Esc>
 imap II <Esc>
+
+" Don't enter insert mode when adding line
+nnoremap o o<Esc>
+nnoremap O O<Esc>
+
+" Ignore case when searching by default
+set ignorecase
+
