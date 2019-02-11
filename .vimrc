@@ -13,7 +13,7 @@ set colorcolumn=100
 
 " Highlight column and line
 "set cursorcolumn
-"set cursorline
+set cursorline
 
 " Syntax highlighting on
 syntax on
@@ -47,6 +47,7 @@ nnoremap O O<Esc>
 " Ignore case when searching by default
 set ignorecase smartcase incsearch hlsearch
 
+let g:clang_library_path='/usr/lib/llvm-6.0/lib'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSCOPE settings for vim
