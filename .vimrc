@@ -4,6 +4,9 @@ set encoding=utf-8
 " Brightside settings for backups and swaps!
 set nobackup nowritebackup noswapfile
 
+" Backspace compatibility
+set backspace=2
+
 " Start next line with current indentation
 set smartindent
 set autoindent
@@ -31,10 +34,11 @@ set listchars=tab:\|-,trail:·
 " Display line numbers
 set nu
 
-map [ <Left>
-map € <Right>
-map ] <Down>
-map ) <Up>
+nmap [ <Left>
+nmap € <Right>
+nmap ] <Down>
+nmap ) <Up>
+
 
 " Double tap i or I to exit Insert mode
 imap ii <Esc>
@@ -47,8 +51,11 @@ nnoremap O O<Esc>
 " Ignore case when searching by default
 set ignorecase smartcase incsearch hlsearch
 
-let g:clang_library_path='/usr/lib/llvm-6.0/lib'
-
+if has ('mac')
+    let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
+elseif has ('unix')
+    let g:clang_library_path='/usr/lib/llvm-6.0/lib'
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSCOPE settings for vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
