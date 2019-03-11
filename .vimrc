@@ -17,6 +17,10 @@ set colorcolumn=100
 " Highlight column and line
 "set cursorcolumn
 set cursorline
+nmap cr :set cursorcolumn <CR>
+nmap rc :set nocursorcolumn <CR>
+nmap CR :set cursorcolumn <CR>
+nmap RC :set nocursorcolumn <CR>
 
 " Syntax highlighting on
 syntax on
@@ -38,6 +42,10 @@ nmap [ <Left>
 nmap € <Right>
 nmap ] <Down>
 nmap ) <Up>
+vmap [ <Left>
+vmap € <Right>
+vmap ] <Down>
+vmap ) <Up>
 
 
 " Double tap i or I to exit Insert mode
@@ -50,12 +58,24 @@ nnoremap O O<Esc>
 
 " Ignore case when searching by default
 set ignorecase smartcase incsearch hlsearch
+set path=$PWD/**
 
+" clang-complete options
+let g:clang_complete_auto = 1
+let g:clang_complete_copen = 1
+set completeopt=menu,longest
+"let g:clang_snippets = 1
+"let g:clang_snippets_engine = 'clang_complete'
+"let g:clang_user_options='|| exit 0'
 if has ('mac')
     let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
 elseif has ('unix')
     let g:clang_library_path='/usr/lib/llvm-6.0/lib'
 endif
+
+" netrw config
+"let g:netrw_liststyle = 3
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSCOPE settings for vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -146,16 +166,16 @@ if has("cscope")
     " go back to where you were before the search.
     "
 
-    nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-    nmap <C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@>a :cs find a <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>s :tab cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>g :tab cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>c :tab cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>t :tab cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>e :tab cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>f :tab cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-@>i :tab cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <C-@>d :tab cs find d <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>d :tab cs find d <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@>a :tab cs find a <C-R>=expand("<cword>")<CR><CR>
 
 
     " Using 'CTRL-spacebar' (intepreted as CTRL-@ by vim) then a search type
@@ -166,15 +186,15 @@ if has("cscope")
     " can be simulated roughly via:
     "    nmap <C-@>s <C-W><C-S> :cs find s <C-R>=expand("<cword>")<CR><CR>
 
-    nmap <C-@><C-@>s :scs find s <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>g :scs find g <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>c :scs find c <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>t :scs find t <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>e :scs find e <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
-    nmap <C-@><C-@>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-@><C-@>d :scs find d <C-R>=expand("<cword>")<CR><CR>
-    nmap <C-@><C-@>a :scs find a <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@><C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@><C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@><C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@><C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@><C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@><C-@>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-@><C-@>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <C-@><C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-@><C-@>a :cs find a <C-R>=expand("<cword>")<CR><CR>
 
 
     " Hitting CTRL-space *twice* before the search type does a vertical
