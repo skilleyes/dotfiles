@@ -113,3 +113,6 @@ nnoremap O O<Esc>
 " Ignore case when searching by default
 set ignorecase smartcase incsearch hlsearch
 set path=$PWD/**
+
+" C header guard macro
+let @i="diWi#ifndef \<Esc>pa\<CR>#define \<Esc>pGooi#endif  // \<Esc>p"
