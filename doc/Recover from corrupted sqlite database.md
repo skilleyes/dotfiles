@@ -14,6 +14,7 @@ In order to recover the database, we must dump the database to a text file, edit
 sqlite3 malformed.db
 .mode insert
 .output dumpfile.sql
+.dump
 .exit
 ```
 
