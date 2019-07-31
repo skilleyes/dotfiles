@@ -85,6 +85,7 @@ set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 " Tab completion settings
 set wildmode=longest,list,full
 set wildmenu
+set wildignore=*build*,*.o
 
 set list
 set listchars=tab:\|-,trail:·
