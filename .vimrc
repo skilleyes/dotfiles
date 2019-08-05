@@ -107,6 +107,9 @@ vmap ) <Up>
 imap ii <Esc>
 imap II <Esc>
 
+" Insert a single charater
+nnoremap <C-I> i <ESC>r
+
 " Don't enter insert mode when adding line
 nnoremap o o<Esc>
 nnoremap O O<Esc>
