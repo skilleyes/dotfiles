@@ -31,6 +31,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,8 +66,12 @@ set backspace=2
 set smartindent
 set autoindent
 
+" Color scheme
+colorscheme default
+
 " Color 100th line
 set colorcolumn=100
+highlight ColorColumn ctermbg=7
 
 " Highlight column and line
 "set cursorcolumn
@@ -120,3 +125,11 @@ set path=$PWD/**
 
 " C header guard macro
 let @i="diWi#ifndef \<Esc>pa\<CR>#define \<Esc>pGooi#endif  // \<Esc>p"
+
+" GitGutter config
+let g:gitgutter_map_keys = 0
+highlight GitGutterDelete ctermbg=1
+highlight GitGutterAdd ctermbg=2
+highlight GitGutterChange ctermbg=3
+highlight GitGutterChangeDelete ctermbg=3
+set updatetime=100
