@@ -98,16 +98,6 @@ set listchars=tab:\|-,trail:·
 " Display line numbers
 set nu
 
-nmap [ <Left>
-nmap € <Right>
-nmap ] <Down>
-nmap ) <Up>
-vmap [ <Left>
-vmap € <Right>
-vmap ] <Down>
-vmap ) <Up>
-
-
 " Double tap i or I to exit Insert mode
 imap ii <Esc>
 imap II <Esc>
@@ -128,8 +118,17 @@ let @i="diWi#ifndef \<Esc>pa\<CR>#define \<Esc>pGooi#endif  // \<Esc>p"
 
 " GitGutter config
 let g:gitgutter_map_keys = 0
-highlight GitGutterDelete ctermbg=1
-highlight GitGutterAdd ctermbg=2
-highlight GitGutterChange ctermbg=3
-highlight GitGutterChangeDelete ctermbg=3
+" highlight GitGutterDelete ctermbg=1
+" highlight GitGutterAdd ctermbg=2
+" highlight GitGutterChange ctermbg=3
+" highlight GitGutterChangeDelete ctermbg=3
 set updatetime=100
+
+nmap « <Left>
+nmap » <Right>
+nmap ( <Down>
+nmap ) <Up>
+vmap « <Left>
+vmap » <Right>
+vmap ( <Down>
+vmap ) <Up>
