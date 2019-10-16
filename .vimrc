@@ -48,10 +48,17 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "
-let g:ycm_use_clangd = 0
-
 "---- End of Vundle config ----
 "------------------------------
+
+
+" YouCompleteMe configuration
+let g:ycm_use_clangd = 0
+let g:ycm_goto_buffer_command = 'split-or-existing-window'
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+nnoremap <leader>jd :belowright vertical YcmCompleter GoTo<CR>
+nnoremap <leader>t :YcmCompleter GetType<CR>
 
 scriptencoding utf-8
 set encoding=utf-8
@@ -67,7 +74,7 @@ set smartindent
 set autoindent
 
 " Color scheme
-colorscheme default
+colorscheme zellner
 
 " Color 100th line
 set colorcolumn=100
@@ -75,11 +82,15 @@ highlight ColorColumn ctermbg=7
 
 " Highlight column and line
 "set cursorcolumn
-set cursorline
-nmap cr :set cursorcolumn <CR>
-nmap rc :set nocursorcolumn <CR>
-nmap CR :set cursorcolumn <CR>
-nmap RC :set nocursorcolumn <CR>
+"set cursorline
+
+:autocmd InsertEnter * set cursorline
+:autocmd InsertLeave * set nocursorline
+
+nmap cr :set cursorcolumn <CR> :set cursorline <CR>
+nmap rc :set nocursorcolumn <CR> :set nocursorline <CR>
+nmap CR :set cursorcolumn <CR> :set cursorline <CR>
+nmap RC :set nocursorcolumn <CR> :set nocursorline <CR>
 
 " Syntax highlighting on
 syntax on
@@ -97,13 +108,6 @@ set listchars=tab:\|-,trail:·
 
 " Display line numbers
 set nu
-
-" Double tap i or I to exit Insert mode
-imap ii <Esc>
-imap II <Esc>
-
-" Insert a single charater
-nnoremap <C-I> i <ESC>r
 
 " Don't enter insert mode when adding line
 nnoremap o o<Esc>
@@ -126,9 +130,9 @@ set updatetime=100
 
 nmap « <Left>
 nmap » <Right>
-nmap ( <Down>
-nmap ) <Up>
+nmap ) <Down>
+nmap ( <Up>
 vmap « <Left>
 vmap » <Right>
-vmap ( <Down>
-vmap ) <Up>
+vmap ) <Down>
+vmap ( <Up>
