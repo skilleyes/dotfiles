@@ -32,6 +32,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -51,6 +52,18 @@ filetype plugin indent on    " required
 "---- End of Vundle config ----
 "------------------------------
 
+" instant-markdown configuration :
+"Uncomment to override defaults:
+"let g:instant_markdown_slow = 1
+"let g:instant_markdown_autostart = 0
+"let g:instant_markdown_open_to_the_world = 1
+"let g:instant_markdown_allow_unsafe_content = 1
+"let g:instant_markdown_allow_external_content = 0
+"let g:instant_markdown_mathjax = 1
+"let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
+"let g:instant_markdown_autoscroll = 0
+"let g:instant_markdown_port = 8888
+"let g:instant_markdown_python = 1
 
 " YouCompleteMe configuration
 let g:ycm_use_clangd = 0
@@ -122,10 +135,10 @@ let @i="diWi#ifndef \<Esc>pa\<CR>#define \<Esc>pGooi#endif  // \<Esc>p"
 
 " GitGutter config
 let g:gitgutter_map_keys = 0
-" highlight GitGutterDelete ctermbg=1
-" highlight GitGutterAdd ctermbg=2
-" highlight GitGutterChange ctermbg=3
-" highlight GitGutterChangeDelete ctermbg=3
+ highlight GitGutterDelete ctermbg=1
+ highlight GitGutterAdd ctermbg=2
+ highlight GitGutterChange ctermbg=3
+ highlight GitGutterChangeDelete ctermbg=3
 set updatetime=100
 
 nmap « <Left>
