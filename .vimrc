@@ -29,10 +29,11 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
+Plugin 'jeaye/color_coded'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,13 +66,18 @@ filetype plugin indent on    " required
 "let g:instant_markdown_port = 8888
 "let g:instant_markdown_python = 1
 
+" cpp enhanced highlight
+"let g:cpp_class_scope_highlight = 1
+"let g:cpp_member_variable_highlight = 1
+
 " YouCompleteMe configuration
-let g:ycm_use_clangd = 0
 let g:ycm_goto_buffer_command = 'split-or-existing-window'
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
 nnoremap <leader>jd :belowright vertical YcmCompleter GoTo<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
+noremap <C-LeftMouse> <LeftMouse> :YcmCompleter GoTo <CR>
+noremap <C-RightMouse> <LeftMouse> :YcmCompleter GoTo <CR>*:e %<.cpp<CR>n
 
 scriptencoding utf-8
 set encoding=utf-8
@@ -149,3 +155,19 @@ vmap « <Left>
 vmap » <Right>
 vmap ) <Down>
 vmap ( <Up>
+
+" Octave syntax
+augroup filetypedetect
+  au! BufRead,BufNewFile *.m,*.oct set filetype=octave
+augroup END
+
+" Enable click to set cursor position
+set mouse=a
+
+":map [[ ?{<CR>w99[{
+":map ][ /}<CR>b99]}
+":map ]] j0[[%/{<CR>
+":map [] k$][%?}<CR>
+
+" Always display statusline (:help laststatus)
+set laststatus=2
