@@ -1,3 +1,6 @@
+# Set xterm to keep default colors
+term xterm
+
 # increase scrollback buffer size
 defscrollback 10000
 
