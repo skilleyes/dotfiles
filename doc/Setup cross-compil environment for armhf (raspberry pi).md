@@ -32,3 +32,17 @@ ou alors entrer dans le chroot en montant le dossier /home
 ```
 
 et lancer le build depuis le schroot.
+
+## Setup ccache with sbuild
+
+Follow the instructions here :
+- [Setup ccache with sbuild](https://wiki.debian.org/sbuild#Using_.22ccache.22_with_sbuild)
+
+## Remove a chroot
+
+Get info about the schroot : `schroot --info -c source:inspection-amd64`
+
+Remove directory "Directory" in the info command :
+
+- `/var/lib/schroot/chroots/chroot-to-delete` -> the files
+- `/etc/schroot/chrood.d/sbuild-chroot-to-delete` -> the schroot config file
