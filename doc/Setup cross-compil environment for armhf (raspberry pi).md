@@ -8,7 +8,13 @@ Install des outils :
 sudo apt-get install sbuild ubuntu-dev-tools
 ```
 
-Création d'un chroot
+Création d'un chroot pour SITL
+
+```
+mk-sbuild --name=project-focal focal
+```
+
+Création d'un chroot pour crossbuild
 
 ```
 mk-sbuild --arch=armhf bionic

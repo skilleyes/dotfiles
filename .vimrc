@@ -30,9 +30,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 Plugin 'ycm-core/YouCompleteMe'
-Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
+" Plugin 'suan/vim-instant-markdown', {'rtp': 'after'}
+Plugin 'iamcco/markdown-preview.nvim',  { 'do': 'cd app & yarn install' }
 Plugin 'jeaye/color_coded'
 
 " All of your Plugins must be added before the following line
@@ -73,7 +73,10 @@ filetype plugin indent on    " required
 " YouCompleteMe configuration
 let g:ycm_goto_buffer_command = 'split-or-existing-window'
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_auto_hover = ""
 
+" Hide hover window "y -> ycm hide"
+nmap <leader>y <plug>(YCMHover)
 nnoremap <leader>jd :belowright vertical YcmCompleter GoTo<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
 noremap <C-LeftMouse> <LeftMouse> :YcmCompleter GoTo <CR>
@@ -121,6 +124,7 @@ set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set wildmode=longest,list,full
 set wildmenu
 set wildignore=*build*,*.o
+set wildignore+=**/build*/**
 
 set list
 set listchars=tab:\|-,trail:·
@@ -141,11 +145,16 @@ let @i="diWi#ifndef \<Esc>pa\<CR>#define \<Esc>pGooi#endif  // \<Esc>p"
 
 " GitGutter config
 let g:gitgutter_map_keys = 0
- highlight GitGutterDelete ctermbg=1
- highlight GitGutterAdd ctermbg=2
- highlight GitGutterChange ctermbg=3
- highlight GitGutterChangeDelete ctermbg=3
-set updatetime=100
+ highlight GitGutterAdd guifg=#009900 ctermfg=2
+ highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+ highlight GitGutterChangeDelete guifg=#bbbb00 ctermfg=3
+ highlight clear SignColumn
+" highlight GitGutterDelete ctermbg=1
+" highlight GitGutterAdd ctermbg=2
+" highlight GitGutterChange ctermbg=3
+" highlight GitGutterChangeDelete ctermbg=3
+set updatetime=500
 
 nmap « <Left>
 nmap » <Right>
