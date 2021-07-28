@@ -1,0 +1,3 @@
+$if mode=vi
+    "\e.":yank-last-arg
+$endif

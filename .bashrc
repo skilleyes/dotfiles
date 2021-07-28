@@ -1,10 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-# We use preexec and precmd hook functions for Bash
-# If you have anything that's using the Debug Trap or PROMPT_COMMAND 
-# change it to use preexec or precmd
-# See also https://github.com/rcaloras/bash-preexec
 
 # If not running interactively, don't do anything
 case $- in
@@ -224,3 +220,7 @@ keychain ~/.ssh/id_rsa
 # Jump in history with up and down arrow
 bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
+source /opt/ros/noetic/setup.bash
+
+# Set vi-like edit mode
+set -o vi
