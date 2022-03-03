@@ -79,8 +79,15 @@ let g:ycm_auto_hover = ""
 nmap <leader>y <plug>(YCMHover)
 nnoremap <leader>jd :belowright vertical YcmCompleter GoTo<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
-noremap <C-LeftMouse> <LeftMouse> :YcmCompleter GoTo <CR>
-noremap <C-RightMouse> <LeftMouse> :YcmCompleter GoTo <CR>*:e %<.cpp<CR>n
+noremap <C-LeftMouse> <LeftMouse> :tab YcmCompleter GoTo <CR>
+noremap <C-RightMouse> <LeftMouse> :tab YcmCompleter GoTo <CR>*:e %<.cpp<CR>n
+
+" Generate c++ setter declaration and implementation
+let @s ="0wv2E\"ayWvE\"byoivoid set_\<Esc>\"bpxa(\<Esc>\"apxa);\<Esc>"
+let @r ="yyp$xa {\<cr>\<Esc>\"bp>>A = \<Esc>a \<Esc>\"bpxa;\<cr>}\<Esc>"
+" Generate c++ getter declaration and implementation
+let @g ="0wv2E\"ayWvE\"byo\"apxa();\<Esc>"
+let @h ="yyp$xa {\<cr>return \<Esc>\"bpa;\<cr>}\<Esc>"
 
 scriptencoding utf-8
 set encoding=utf-8
@@ -180,3 +187,9 @@ set mouse=a
 
 " Always display statusline (:help laststatus)
 set laststatus=2
+
+" Create command to redirect last :g// search to new tab
+nnoremap <silent> <F3> :redir @a<CR>:g//<CR>:redir END<CR>:tabe<CR>:put! a<CR>
+
+" Remap escape key on Ctrl-L as suggested in https://vim.fandom.com/wiki/Avoid_the_escape_key#Alternative_mappings
+imap <C-L> <esc>

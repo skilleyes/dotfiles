@@ -182,8 +182,15 @@ xterm*|rxvt*)
     ;;
 esac
 
+# megit
+PATH=$PATH:/home/ryan/build/megit/
+
 #gcovr
 PATH=$PATH:/home/ryan/lib/gcovr-3.2/scripts
+export PATH
+
+#home/bin
+PATH=$PATH:/home/ryan/bin
 export PATH
 
 #compiler autopilot
@@ -223,4 +230,26 @@ bind '"\e[B":history-search-forward'
 source /opt/ros/noetic/setup.bash
 
 # Set vi-like edit mode
-set -o vi
+#set -o vi
+
+# If there are multiple matches for completion, Tab should cycle through them
+bind 'TAB':menu-complete
+bind '"\e[Z":menu-complete-backward'
+
+# Display a list of the matching files
+bind "set show-all-if-ambiguous on"
+
+# Perform partial completion on the first Tab press,
+# only start cycling full results on the second Tab press
+bind "set menu-complete-display-prefix on"
+
+stty -ixon
+
+#if [ -f /sys/module/hid_apple/parameters/swap_opt_cmd ]; then
+#    echo 1 | sudo tee /sys/module/hid_apple/parameters/swap_opt_cmd
+#fi
+
+DEBEMAIL="ryan.ammoury@squadrone-system.com"
+DEBFULLNAME="Ryan Ammoury"
+export DEBEMAIL
+export DEBFULLNAME
